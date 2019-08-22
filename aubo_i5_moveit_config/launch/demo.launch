@@ -54,4 +54,7 @@
     <arg name="moveit_warehouse_database_path" value="$(arg db_path)"/>
   </include>
 
+  <!--<node pkg="tf" type="static_transform_publisher" name="kinect2_frame_broadcaster" args="-0.0985144309163 0.0516260371426 -0.06194568386080 -0.0562920821286 0.100425793367 0.993348604848 0.00210018154395 /wrist3_Link /kinect2_rgb_optical_frame 100" />-->
+ 
+
 </launch>

@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <robot  name="aubo_i5">
- 
-
+  
   <link name="base_footprint">  
   </link>
 
@@ -45,12 +44,81 @@
     </collision>
   </link>
 
-  <joint name="car_joint" type="fixed">
+  <joint name="car_base_joint" type="fixed">
     <parent link = "base_footprint" />
     <child link = "car_base_link" />
     <origin xyz="0.0 0.24 0.03" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 0 1" />
+    <limit lower="0" upper="0" effort="0" velocity="0" />
+    <safety_controller k_velocity="0" />
   </joint>
 
+  <link name="car_cube_link">
+    <inertial>
+      <origin
+        xyz="0.358478838747814 0.48993765705809 0.589064189549533"
+        rpy="0 0 0" />
+      <mass
+        value="31.8228891222604" />
+      <inertia
+        ixx="0.373774052441912"
+        ixy="0.000664387306119399"
+        ixz="-0.000477035977810397"
+        iyy="0.558083842274581"
+        iyz="0.000406359279044083"
+        izz="0.334149245721581" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://aubo_description/meshes/car/car_cube_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.529411764705882 0.549019607843137 0.549019607843137 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://aubo_description/meshes/car/car_cube_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="car_cube_joint" type="fixed">
+    <parent link = "base_footprint" />
+    <child link = "car_cube_link" />
+    <origin xyz="0.35 -0.557 -0.2105" rpy="0.0 0.0 3.1415926" />
+    <axis xyz="0 0 1" />
+    <limit lower="0" upper="0" effort="0" velocity="0" />
+    <safety_controller k_velocity="0" />
+  </joint>
+
+  <link name="mynt_camera_link">  
+  </link>
+ 
+  <joint name="mynt_camera_joint" type="fixed">
+    <origin xyz="0.0 0.027 0.47" rpy="-1.57 -1.57 0" /> 
+    <parent link="car_base_link" />
+    <child link="mynt_camera_link" />
+    <axis xyz="0 0 1" /> 
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>  
+ 
   <link name="wheel_left_front_Link">
     <inertial>
       <origin
@@ -91,7 +159,7 @@
     </collision>
   </link>
   
-  <joint name="wheel_left_front_joint" type="revolute">
+  <joint name="wheel_left_front_joint" type="fixed">
     <origin
       xyz="0.04 -0.12 -0.313828"
       rpy="0 0 0" />
@@ -151,7 +219,7 @@
   
   </link>
   
-  <joint name="wheel_left_back_joint" type="revolute">
+  <joint name="wheel_left_back_joint" type="fixed">
     <origin
       xyz="0.04 -0.43 0.044"
       rpy="0 0 0" />
@@ -210,7 +278,7 @@
     </collision>
   </link>
   
-  <joint name="wheel_right_front_joint" type="revolute">
+  <joint name="wheel_right_front_joint" type="fixed">
     <origin
       xyz="0.9 -0.12 -0.313828"
       rpy="0 0 0" />
@@ -269,7 +337,7 @@
     </collision>
   </link>
   
-  <joint name="wheel_right_back_joint" type="revolute">
+  <joint name="wheel_right_back_joint" type="fixed">
     <origin
       xyz="0.9 -0.43 0.044"
       rpy="0 0 0" />
@@ -314,7 +382,9 @@
   <joint name="base_link_joint" type="fixed">
     <parent link = "base_footprint" />
     <child link = "base_link" />
-    <origin xyz="0.0 0.1 0.26" rpy="0.0 0.0 3.14" />
+    <origin xyz="0.0 0.1 0.59" rpy="0.0 0.0 3.14" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.05" upper="3.05" effort="0" velocity="0" />
   </joint>
 
   <link name="shoulder_Link">
@@ -503,23 +573,13 @@
     <limit lower="-3.05" upper="3.05" effort="0" velocity="0" />
   </joint>
  
-<!--
   <link name="kinect2_rgb_optical_frame"> 
   </link>
-
+ <!---0.00471435414308 -0.0894849667007 -0.995928202119 0.0098606198788-->
   <joint name="kinect2_rgb_optical_joint" type="fixed">
     <parent link="wrist3_Link" />
     <child link = "kinect2_rgb_optical_frame" />
-    <origin xyz="0.0 0.045 0.04" rpy="0 0 0" />
-x: -0.0985144309163
-  y: 0.0516260371426
-  z: -0.0619456838608
-rotation: 
-  x: -0.0562920821286
-  y: 0.100425793367
-  z: 0.993348604848
-  w: 0.00210018154395
-
+    <origin xyz="-0.106744813734 0.092974366887 0.0530513667371" rpy="0.179298499038  0.00762563591405 -3.12110595845" />  
     <axis xyz="0 0 1" /> 
     <limit
       lower="0"
@@ -528,7 +588,7 @@ rotation:
       velocity="0" />
     <safety_controller
       k_velocity="0" />
-  </joint>-->
+  </joint>
 
   <link name="kinect_camera_link"> 
     <inertial>
@@ -561,9 +621,7 @@ rotation:
      </geometry>
    </collision> 
   </link>
-
  
-
   <joint name="kinect_camera_joint" type="fixed">
     <origin xyz="0.0 0.045 0.04" rpy="0 0 0" /> 
     <parent link="wrist3_Link" />
@@ -595,9 +653,9 @@ rotation:
         izz="0.00853160339994296" />
     </inertial> 
    <visual>
-     <origin xyz="0 0 0" rpy="0 0 0" />
+     <origin xyz="0 0 -0.04" rpy="0 0 0" />
      <geometry>
-       <box size="0.15 0.05 0.15" />
+       <box size="0.15 0.05 0.10" />
      </geometry>
      <material name="Cyan">
        <color rgba="0 1.0 1.0 1.0"/>
@@ -612,8 +670,8 @@ rotation:
   </link>
 
   <joint name="dh_grasp_joint" type="fixed">
-    <origin xyz="0.0 -0.045 0.11" rpy="0 0 0" /> 
-    <parent link="kinect_camera_link" />
+    <origin xyz="-0.02 -0.017 0.185" rpy="0 0 0" /> 
+    <parent link="wrist3_Link" />
     <child link="dh_grasp_link" />
     <axis xyz="0 0 1" /> 
     <limit
@@ -624,6 +682,5 @@ rotation:
     <safety_controller
       k_velocity="0" />
   </joint> 
- 
-
+  
 </robot>

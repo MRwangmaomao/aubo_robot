@@ -47,7 +47,7 @@
     <arg name="config" value="true"/>
   </include>
   
-  <node pkg="tf" type="static_transform_publisher" name="kinect2_frame_broadcaster" args="-0.0985144309163 0.0516260371426 -0.06194568386080 -0.0562920821286 0.100425793367 0.993348604848 0.00210018154395 /wrist3_Link /kinect2_rgb_optical_frame 100" />
+  <!--<node pkg="tf" type="static_transform_publisher" name="kinect2_frame_broadcaster" args="-0.106744813734 0.092974366887 0.0530513667371 -0.00471435414308 -0.0894849667007 -0.995928202119 0.0098606198788 /wrist3_Link /kinect2_rgb_optical_frame 100" />-->
    
   <node pkg="tf" type="static_transform_publisher" name="world_car_broadcaster" args="0 0 0 0 0 0 /world /base_footprint 100" />
   <!--<include file="$(find aubo_i5_moveit_config)/launch/default_warehouse_db.launch" />-->

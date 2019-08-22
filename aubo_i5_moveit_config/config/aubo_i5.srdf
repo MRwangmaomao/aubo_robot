@@ -31,7 +31,7 @@
         <joint name="wrist2_joint" value="0" />
         <joint name="wrist3_joint" value="0" />
     </group_state>
-    <group_state name="up" group="manipulator_i5">
+    <group_state name="start_grasp" group="manipulator_i5">
         <joint name="shoulder_joint" value="0" />
         <joint name="upperArm_joint" value="-1.57" />
         <joint name="foreArm_joint" value="0" />
