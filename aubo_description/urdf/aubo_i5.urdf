@@ -572,14 +572,14 @@
     <axis xyz="0 0 1" />
     <limit lower="-3.05" upper="3.05" effort="0" velocity="0" />
   </joint>
- 
+  
   <link name="kinect2_rgb_optical_frame"> 
   </link>
  <!---0.00471435414308 -0.0894849667007 -0.995928202119 0.0098606198788-->
   <joint name="kinect2_rgb_optical_joint" type="fixed">
     <parent link="wrist3_Link" />
     <child link = "kinect2_rgb_optical_frame" />
-    <origin xyz="-0.106744813734 0.092974366887 0.0530513667371" rpy="0.179298499038  0.00762563591405 -3.12110595845" />  
+    <origin xyz="-0.0904424697245 0.0827128670053 0.0157324730325" rpy="0.154354478521  -0.0280159632511 3.13231749676" />  
     <axis xyz="0 0 1" /> 
     <limit
       lower="0"
@@ -670,7 +670,7 @@
   </link>
 
   <joint name="dh_grasp_joint" type="fixed">
-    <origin xyz="-0.02 -0.017 0.185" rpy="0 0 0" /> 
+    <origin xyz="0.0 0.0 0.185" rpy="0 0 0" /> 
     <parent link="wrist3_Link" />
     <child link="dh_grasp_link" />
     <axis xyz="0 0 1" /> 
