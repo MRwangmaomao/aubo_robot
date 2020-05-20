@@ -4,12 +4,11 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /Global Options1
-        - /Image1
         - /TF1/Frames1
         - /TF1/Tree1
+        - /PointCloud21
       Splitter Ratio: 0.742560029
-    Tree Height: 181
+    Tree Height: 177
   - Class: rviz/Help
     Name: Help
   - Class: rviz/Views
@@ -40,7 +39,7 @@ Visualization Manager:
         Z: 0
       Plane: XY
       Plane Cell Count: 10
-      Reference Frame: <Fixed Frame>
+      Reference Frame: room_frame
       Value: true
     - Acceleration_Scaling_Factor: 1
       Class: moveit_rviz_plugin/MotionPlanning
@@ -75,10 +74,6 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
-          base_footprint:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
           base_link:
             Alpha: 1
             Show Axes: false
@@ -114,6 +109,10 @@ Visualization Manager:
             Show Trail: false
             Value: true
           mynt_camera_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          robot_base:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -207,10 +206,6 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
-          base_footprint:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
           base_link:
             Alpha: 1
             Show Axes: false
@@ -246,6 +241,10 @@ Visualization Manager:
             Show Trail: false
             Value: true
           mynt_camera_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          robot_base:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -320,10 +319,6 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
-          base_footprint:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
           base_link:
             Alpha: 1
             Show Axes: false
@@ -359,6 +354,10 @@ Visualization Manager:
             Show Trail: false
             Value: true
           mynt_camera_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          robot_base:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -421,10 +420,6 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        base_footprint:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         base_link:
           Alpha: 1
           Show Axes: false
@@ -460,6 +455,10 @@ Visualization Manager:
           Show Trail: false
           Value: true
         mynt_camera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        robot_base:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -561,8 +560,8 @@ Visualization Manager:
       Use rainbow: true
       Value: true
     - Class: rviz/Image
-      Enabled: false
-      Image Topic: /kinect2/sd/image_color_rect
+      Enabled: true
+      Image Topic: /detector/disp
       Max Value: 1
       Median window: 5
       Min Value: 0
@@ -571,15 +570,15 @@ Visualization Manager:
       Queue Size: 2
       Transport Hint: raw
       Unreliable: false
-      Value: false
+      Value: true
     - Class: rviz/TF
       Enabled: true
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        base_footprint:
-          Value: true
         base_link:
+          Value: true
+        cam0:
           Value: true
         car_base_link:
           Value: false
@@ -589,18 +588,62 @@ Visualization Manager:
           Value: true
         foreArm_Link:
           Value: false
-        imu_link:
-          Value: true
+        grasp_lab:
+          Value: false
         kinect2_rgb_optical_frame:
           Value: true
         kinect_camera_link:
           Value: false
-        laser:
+        lidar_frame:
           Value: true
+        map:
+          Value: false
         mynt_camera_link:
+          Value: false
+        mynteye_depth_frame:
+          Value: false
+        mynteye_imu_frame:
+          Value: false
+        mynteye_imu_frame_processed:
+          Value: false
+        mynteye_left_color_frame:
+          Value: false
+        mynteye_left_mono_frame:
+          Value: false
+        mynteye_link_frame:
+          Value: false
+        mynteye_points_frame:
+          Value: false
+        mynteye_right_color_frame:
+          Value: false
+        mynteye_right_mono_frame:
+          Value: false
+        mynteye_temp_frame:
+          Value: false
+        rig:
+          Value: false
+        robot_base:
+          Value: true
+        room_frame:
           Value: true
         shoulder_Link:
           Value: false
+        tag_0:
+          Value: true
+        tag_1:
+          Value: true
+        tag_2:
+          Value: true
+        tag_3:
+          Value: true
+        tag_4:
+          Value: true
+        tag_5:
+          Value: true
+        tag_6:
+          Value: true
+        tag_7:
+          Value: true
         upperArm_Link:
           Value: false
         wheel_left_back_link:
@@ -611,8 +654,6 @@ Visualization Manager:
           Value: false
         wheel_right_front_link:
           Value: false
-        world:
-          Value: true
         wrist1_Link:
           Value: false
         wrist2_Link:
@@ -621,49 +662,109 @@ Visualization Manager:
           Value: false
       Marker Scale: 1
       Name: TF
-      Show Arrows: true
+      Show Arrows: false
       Show Axes: true
       Show Names: true
       Tree:
-        world:
-          base_footprint:
-            base_link:
-              shoulder_Link:
-                upperArm_Link:
-                  foreArm_Link:
-                    wrist1_Link:
-                      wrist2_Link:
-                        wrist3_Link:
-                          dh_grasp_link:
-                            {}
-                          kinect2_rgb_optical_frame:
-                            {}
-                          kinect_camera_link:
-                            {}
-            car_base_link:
-              mynt_camera_link:
+        map:
+          grasp_lab:
+            tag_0:
+              room_frame:
                 {}
-              wheel_left_back_link:
-                {}
-              wheel_left_front_Link:
-                {}
-              wheel_right_back_link:
-                {}
-              wheel_right_front_link:
-                {}
-            car_cube_link:
+            tag_1:
               {}
-            imu_link:
+            tag_2:
               {}
-            laser:
+            tag_3:
               {}
+            tag_4:
+              {}
+            tag_5:
+              {}
+            tag_6:
+              {}
+            tag_7:
+              {}
+          rig:
+            cam0:
+              robot_base:
+                base_link:
+                  shoulder_Link:
+                    upperArm_Link:
+                      foreArm_Link:
+                        wrist1_Link:
+                          wrist2_Link:
+                            wrist3_Link:
+                              dh_grasp_link:
+                                {}
+                              kinect2_rgb_optical_frame:
+                                {}
+                              kinect_camera_link:
+                                {}
+                car_base_link:
+                  mynt_camera_link:
+                    {}
+                  wheel_left_back_link:
+                    {}
+                  wheel_left_front_Link:
+                    {}
+                  wheel_right_back_link:
+                    {}
+                  wheel_right_front_link:
+                    {}
+                car_cube_link:
+                  {}
+                lidar_frame:
+                  {}
       Update Interval: 0
+      Value: true
+    - Class: rviz/Image
+      Enabled: true
+      Image Topic: /kinect2/qhd/image_color
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: kinect_rgb
+      Normalize Range: true
+      Queue Size: 2
+      Transport Hint: raw
+      Unreliable: false
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: ""
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: PointCloud2
+      Position Transformer: ""
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.00999999978
+      Style: Flat Squares
+      Topic: /kinect2/sd/points
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
       Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: base_footprint
+    Fixed Frame: room_frame
     Frame Rate: 30
   Name: root
   Tools:
@@ -683,30 +784,30 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 2.51457596
+      Distance: 7.21292686
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.0810030699
-        Y: -0.00639359653
-        Z: -3.57627869e-06
+        X: 0.431703448
+        Y: 0.201751232
+        Z: -3.32357763e-06
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: -0.1397973
+      Pitch: 0.39479658
       Target Frame: world
       Value: XYOrbit (rviz)
-      Yaw: 3.04403877
+      Yaw: 3.25904512
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 1028
+  Height: 1056
   Help:
     collapsed: false
   Hide Left Dock: false
@@ -717,7 +818,7 @@ Window Geometry:
     collapsed: false
   MotionPlanning - Trajectory Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000100000000000002b1000003befc020000000dfb000000100044006900730070006c0061007900730100000028000000f6000000d700fffffffb0000000800480065006c00700000000342000000bb0000007300fffffffb0000000a0056006900650077007300000003b0000000b0000000ad00fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720100000124000000540000004a00fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e0067010000017e000001bb0000018300fffffffb000000280020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000000000000000fb0000003c005400720061006a006500630074006f007200790020002d0020005400720061006a006500630074006f0072007900200053006c0069006400650072010000033f000000540000004a00fffffffb00000026005400720061006a006500630074006f007200790020002d00200053006c00690064006500720000000000ffffffff0000000000000000fb0000002e004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d00200053006c00690064006500720000000000ffffffff0000000000000000fb00000024005200760069007a00560069007300750061006c0054006f006f006c007300470075006901000003990000004d0000004300fffffffb0000000a0049006d006100670065020000014e00000038000002b20000016100000488000003be00000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000100000000000002ad000003dafc020000000efb000000100044006900730070006c0061007900730100000028000000f2000000d700fffffffb0000000800480065006c00700000000342000000bb0000007300fffffffb0000000a0056006900650077007300000003b0000000b0000000ad00fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720100000120000000540000004a00fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e0067010000017a000001bf0000018300fffffffb000000280020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000000000000000fb0000003c005400720061006a006500630074006f007200790020002d0020005400720061006a006500630074006f0072007900200053006c0069006400650072010000033f000000530000004a00fffffffb00000026005400720061006a006500630074006f007200790020002d00200053006c00690064006500720000000000ffffffff0000000000000000fb0000002e004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d00200053006c00690064006500720000000000ffffffff0000000000000000fb00000024005200760069007a00560069007300750061006c0054006f006f006c007300470075006901000003980000004b0000004300fffffffb0000000a0049006d00610067006503000000b800000096000001e300000107fb00000014006b0069006e006500630074005f00720067006201000003e9000000190000001600ffffff0000048c000003da00000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   RvizVisualToolsGui:
     collapsed: false
   Trajectory - Trajectory Slider:
@@ -725,5 +826,7 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1855
-  X: 1255
-  Y: 190
+  X: 1089
+  Y: 24
+  kinect_rgb:
+    collapsed: false

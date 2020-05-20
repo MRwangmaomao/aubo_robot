@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot  name="aubo_i5">
   
-  <link name="base_footprint">  
+  <link name="robot_base">  
   </link>
 
   <link name="car_base_link">
@@ -45,7 +45,7 @@
   </link>
 
   <joint name="car_base_joint" type="fixed">
-    <parent link = "base_footprint" />
+    <parent link = "robot_base" />
     <child link = "car_base_link" />
     <origin xyz="0.0 0.24 0.03" rpy="0.0 0.0 0.0" />
     <axis xyz="0 0 1" />
@@ -94,7 +94,7 @@
   </link>
 
   <joint name="car_cube_joint" type="fixed">
-    <parent link = "base_footprint" />
+    <parent link = "robot_base" />
     <child link = "car_cube_link" />
     <origin xyz="0.35 -0.557 -0.2105" rpy="0.0 0.0 3.1415926" />
     <axis xyz="0 0 1" />
@@ -380,7 +380,7 @@
   </link>
 
   <joint name="base_link_joint" type="fixed">
-    <parent link = "base_footprint" />
+    <parent link = "robot_base" />
     <child link = "base_link" />
     <origin xyz="0.0 0.1 0.59" rpy="0.0 0.0 3.14" />
     <axis xyz="0 0 1" />
